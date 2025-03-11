@@ -14,7 +14,7 @@ class ProductsOfSection extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar1(title: "${controller.selectedSuperSection!.name}"),
-      body: ListView(
+      body: Column(
         children: [
           // spacer
           SizedBox(height: 24.h),
@@ -29,7 +29,7 @@ class ProductsOfSection extends GetView<HomeController> {
               : const SizedBox.shrink(),
 
           // spacer
-          SizedBox(height: 16.h),
+          // SizedBox(height: 16.h),
         ],
       ),
     );

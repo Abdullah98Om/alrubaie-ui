@@ -53,6 +53,11 @@ AppBar myMainAppBar(
                           key: ValueKey<bool>(value.visible),
                         )
                       : Image.asset(drawerIcon),
+                  // Icon(
+                  //   value.visible ? Icons.clear : Icons.menu,
+                  //   key: ValueKey<bool>(value.visible),
+                  //   size: 25.sp,
+                  // ),
                 );
               },
             )),

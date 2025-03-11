@@ -20,7 +20,7 @@ class AllSuperSectionXLPart extends StatelessWidget {
       children: [
         // All Sections title
         GetBuilder<HomeController>(builder: (controller) {
-          return controller.productsLoader || controller.sectionLoader
+          return controller.sectionLoader
               ? WidgetLoader(
                   widget: TitleSection(
                   mainTitleSection: "جميع الأقسام",
@@ -42,7 +42,7 @@ class AllSuperSectionXLPart extends StatelessWidget {
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2, // عدد الأعمدة
                       crossAxisSpacing: 12.w, // المسافة بين الأعمدة
-                      mainAxisSpacing: 12.w, // المسافة بين الصفوف
+                      mainAxisSpacing: 12.h, // المسافة بين الصفوف
                       mainAxisExtent: MediaQuery.sizeOf(context).height.h *
                           0.25, // التحكم في ارتفاع العنصر
                     ),

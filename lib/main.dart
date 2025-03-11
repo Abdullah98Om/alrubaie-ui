@@ -1,4 +1,5 @@
 import 'package:alrubaie/firebase_options.dart';
+// import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,15 +11,22 @@ import 'utility/constant.dart';
 import 'utility/router/page_route.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+// SharedPreferences? sharedPreferences;
+// FirebaseMessaging messaging = FirebaseMessaging.instance;
+// String? appMessagingToken = "";
+
+Future<void> initFirebase() async {
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+}
+
+Future<void> initSupabase() async {
+  await Supabase.initialize(url: SupaProjectURL, anonKey: SupaProjectKey);
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await Supabase.initialize(
-    url: "https://jgdsvfbbazqpzzessvit.supabase.co",
-    anonKey:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpnZHN2ZmJiYXpxcHp6ZXNzdml0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA3NTE2NzQsImV4cCI6MjA1NjMyNzY3NH0.RkHegk6oS6sBwTu02y6N8isQVd1HbZLYhKxcQwa6IsA",
-  );
+
+  await Future.wait([initFirebase(), initSupabase()]);
 
   runApp(const MyApp());
 }
@@ -30,8 +38,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-        overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
+      SystemUiOverlay.bottom,
+      SystemUiOverlay.top
+    ]); // اظهار الشريط السفلي والعلوي
+
+//     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
+//   SystemUiOverlay.top
+// ]);
 
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp, // التدوير

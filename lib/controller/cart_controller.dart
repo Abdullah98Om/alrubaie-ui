@@ -5,7 +5,6 @@ import 'package:alrubaie/view/widgets/my_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../model/item_model.dart';
 import '../model/product_model.dart';
 import '../servicies/card_services.dart';
 

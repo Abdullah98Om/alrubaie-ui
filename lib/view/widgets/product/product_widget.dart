@@ -15,7 +15,7 @@ import '../../../utility/loader.dart';
 import '../../../utility/router/page_route.dart';
 import '../cart/add_to_cart_button.dart';
 
-class ProductWidget extends GetView<HomeController> {
+class ProductWidget extends StatelessWidget {
   final bool xlProduct;
   final ProductModel product;
   const ProductWidget(
@@ -23,6 +23,7 @@ class ProductWidget extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    HomeController controller = Get.find<HomeController>();
     return InkWell(
       onTap: () {
         controller.selectedProduct = product;
@@ -53,6 +54,10 @@ class ProductWidget extends GetView<HomeController> {
                               BorderRadius.circular(xlProduct ? 15.r : 0),
                           child: CachedNetworkImage(
                               imageUrl: product.img!,
+                              errorWidget: (context, url, error) => Icon(
+                                  Icons.error,
+                                  color: primaryColor,
+                                  size: 30.sp),
                               placeholder: (context, url) => loader(),
                               fit: BoxFit.contain))
                       : Image.asset(logoLocation, fit: BoxFit.contain),
@@ -147,14 +152,15 @@ class ProductWidget extends GetView<HomeController> {
   }
 }
 
-class ButtomProduct extends GetView<CartController> {
+class ButtomProduct extends StatelessWidget {
   const ButtomProduct({super.key, required this.product});
 
   final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<CartController>(builder: (context) {
+    final CartController controller = Get.find(); // ✅ بدل GetView
+    return GetBuilder<CartController>(builder: (_) {
       int pos = controller.checkProductInCart(product);
       return pos == -1
           ? Padding(
@@ -182,8 +188,8 @@ class ProductLoaderWidget extends StatelessWidget {
         child: Container(
             width: xlProduct
                 ? MediaQuery.sizeOf(context).width * 0.45
-                : MediaQuery.sizeOf(context).width * 0.4,
-            margin: EdgeInsets.only(left: xlProduct ? 0 : 8.w),
+                : MediaQuery.sizeOf(context).width * 0.3,
+            margin: EdgeInsets.only(left: 8.w, right: 8.w),
             // padding: EdgeInsets.all(5),
             child: Column(children: [
               // product image

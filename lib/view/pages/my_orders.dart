@@ -7,11 +7,12 @@ import 'package:get/get.dart';
 import '../../utility/loader.dart';
 import '../widgets/order/order_card.dart';
 
-class MyOrders extends GetView<OrderController> {
+class MyOrders extends StatelessWidget {
   const MyOrders({super.key});
 
   @override
   Widget build(BuildContext context) {
+    OrderController controller = Get.find<OrderController>();
     return Scaffold(
       appBar: myAppBar1(
           title: "طلباتي",

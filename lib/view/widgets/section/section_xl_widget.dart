@@ -35,10 +35,8 @@ class SectionXLWidget extends GetView<HomeController> {
               child: CachedNetworkImage(
                   fit: BoxFit.cover,
                   placeholder: (context, url) => loader(),
-                  errorWidget: (context, url, error) => const Icon(
-                        Icons.error,
-                        color: primaryColor,
-                      ),
+                  errorWidget: (context, url, error) =>
+                      const Icon(Icons.error, color: primaryColor),
                   imageUrl: controller.superSections[index].img!),
             ),
           ),

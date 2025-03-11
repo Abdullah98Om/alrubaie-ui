@@ -12,7 +12,7 @@ class ProductsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar1(title: "المنتجات"),
-      body: ListView(
+      body: Column(
         children: [
           // spacer
           SizedBox(height: 24.h),
@@ -27,7 +27,7 @@ class ProductsPage extends StatelessWidget {
           const AllProductesWidget(),
 
           // spacer
-          SizedBox(height: 16.h),
+          // SizedBox(height: 16.h),
         ],
       ),
     );

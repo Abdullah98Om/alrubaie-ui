@@ -19,7 +19,17 @@ class OrderDetailes extends GetView<OrderController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: myAppBar1(title: "تفاصيل الطلب", icon: false),
+        appBar: myAppBar1(
+          title: "تفاصيل الطلب",
+          icon: false,
+          // newIcon: Padding(
+          //   padding: EdgeInsets.symmetric(horizontal: 8.w),
+          //   child: InkWell(
+          //     onTap: () => controller.deleteAllMyOrdersFromDB(),
+          //     child: Icon(Icons.delete, size: 25.sp),
+          //   ),
+          // )
+        ),
         body: Padding(
           padding: EdgeInsets.all(16.w),
           child: SingleChildScrollView(
@@ -100,6 +110,23 @@ class OrderDetailes extends GetView<OrderController> {
                                     fontWeight: FontWeight.bold),
                               ),
                         SizedBox(height: 16.h),
+
+                        // Button send final order
+                        // GetBuilder<OrderController>(builder: (controller) {
+                        //   return FadeInUp(
+                        //     child: controller.sendLoader
+                        //         ? Center(
+                        //             child: loader(color: secondryColor),
+                        //           )
+                        //         : MyButton(
+                        //             onTap: () {
+                        //               controller.sendFinalOrder();
+                        //             },
+                        //             title: "أرسال الطلب",
+                        //             height: 60.h,
+                        //             color: secondryColor),
+                        //   );
+                        // })
                       ],
                     ),
                   )

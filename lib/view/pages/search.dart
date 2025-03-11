@@ -11,7 +11,7 @@ class Search extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar1(title: "البحث"),
-      body: ListView(
+      body: Column(
         children: [
           // spacer
           SizedBox(height: 24.h),
@@ -26,7 +26,7 @@ class Search extends StatelessWidget {
           const SearchProducts(),
 
           // spacer
-          SizedBox(height: 16.h),
+          // SizedBox(height: 16.h),
         ],
       ),
     );

@@ -26,8 +26,8 @@ class Index extends StatelessWidget {
                     gradient: linearGradient1),
               ),
               controller: controller.advancedDrawerController,
-              animationCurve: Curves.ease,
-              animationDuration: const Duration(milliseconds: 300),
+              animationCurve: Curves.easeInOut,
+              animationDuration: const Duration(milliseconds: 200),
               animateChildDecoration: true,
               rtlOpening: true, // true with arabic language
               openScale: 0.85, // حجم الشاشة بعد عرض ال drawer

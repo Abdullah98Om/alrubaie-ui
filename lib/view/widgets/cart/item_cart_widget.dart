@@ -50,6 +50,10 @@ class ItemCartWidget extends GetView<CartController> {
                                 ? CachedNetworkImage(
                                     imageUrl: controller
                                         .allMyItemsCart[index].product!.img!,
+                                    errorWidget: (context, url, error) => Icon(
+                                        Icons.error,
+                                        color: primaryColor,
+                                        size: 30.sp),
                                     placeholder: (context, url) => loader(),
                                     fit: BoxFit.contain)
                                 : Image.asset(logoLocation,

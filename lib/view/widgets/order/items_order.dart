@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../utility/constant.dart';
+import '../../../utility/loader.dart';
 import '../my_divider.dart';
 
 class ItemsOrder extends StatelessWidget {
@@ -111,6 +112,12 @@ class ItemsOrder extends StatelessWidget {
                                       height: 200.w,
                                       child: CachedNetworkImage(
                                           fit: BoxFit.contain,
+                                          errorWidget: (context, url, error) =>
+                                              Icon(Icons.error,
+                                                  color: primaryColor,
+                                                  size: 30.sp),
+                                          placeholder: (context, url) =>
+                                              loader(),
                                           imageUrl: items[index].product!.img!),
                                     ));
                               },
@@ -126,6 +133,11 @@ class ItemsOrder extends StatelessWidget {
                                         color: primaryColorShade
                                             .withOpacity(0.4))),
                                 child: CachedNetworkImage(
+                                    placeholder: (context, url) =>
+                                        loader(color: Colors.white),
+                                    errorWidget: (context, url, error) =>
+                                        const Icon(Icons.error,
+                                            color: primaryColor),
                                     fit: BoxFit.contain,
                                     imageUrl: items[index].product!.img!),
                               ),
@@ -290,6 +302,11 @@ class ItemsOrderForDetailes extends StatelessWidget {
                                       width: 200.w,
                                       height: 200.w,
                                       child: CachedNetworkImage(
+                                          placeholder: (context, url) =>
+                                              loader(color: Colors.white),
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(Icons.error,
+                                                  color: primaryColor),
                                           fit: BoxFit.contain,
                                           imageUrl: items[index].product!.img!),
                                     ));
@@ -307,6 +324,11 @@ class ItemsOrderForDetailes extends StatelessWidget {
                                             .withOpacity(0.4))),
                                 child: CachedNetworkImage(
                                     fit: BoxFit.contain,
+                                    placeholder: (context, url) =>
+                                        loader(color: Colors.white),
+                                    errorWidget: (context, url, error) =>
+                                        const Icon(Icons.error,
+                                            color: primaryColor),
                                     imageUrl: items[index].product!.img!),
                               ),
                             ),

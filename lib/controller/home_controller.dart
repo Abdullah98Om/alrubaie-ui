@@ -20,7 +20,9 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
-  List<SuperSectionModel> superSections = [];
+  List<SuperSectionModel> superSections = [
+    // SuperSectionModel(id: "-1", name: "الكل")
+  ];
   List<SectionModel> sections = [];
   List<SectionModel> selectedListSections = [
     SectionModel(id: "-1", name: "الكل")
@@ -45,17 +47,33 @@ class HomeController extends GetxController {
   void changeSelectedSuperSection(int index) {
     selectedProducts = [];
 
+    // if (index == 0) {
+    //   selectedProducts.addAll(products);
+    //   selectedSuperSection = superSections[index];
+    //   // selectedSection = sections[0];
+    //   // changeSelectedSection = 0;
+    //   update();
+    //   Get.toNamed("/${MyPages.products}");
+    // } else {
     Get.toNamed("/${MyPages.productsOfSection}");
     if (superSections.length > index) {
       selectedSuperSection = superSections[index];
 
       changeSelectedSection(0);
+      // for (var p in products) {
+      //   if (p.section!.section!.id == selectedSuperSection!.id) {
+      //     selectedProducts.add(p);
+      //   }
+      // }
+      // update();
     }
+    // }
   }
 
   void changeSelectedSection(int index) {
     selectedProducts = [];
     selectedListSections = [SectionModel(id: "-1", name: "الكل")];
+    // selectedSection = sections[index];
     for (var s in sections) {
       if (s.section!.id == selectedSuperSection!.id) {
         selectedListSections.add(s);
@@ -83,7 +101,7 @@ class HomeController extends GetxController {
   }
 
 /////////////////////////////////////////////////////
-
+  ///
   getSections() {
     sectionLoader = true;
     update();
@@ -111,6 +129,7 @@ class HomeController extends GetxController {
       if (lis.isNotEmpty) {
         products.addAll(lis[0]);
         starProducts.addAll(lis[1]);
+        // update();
       }
       productsLoader = false;
       update();

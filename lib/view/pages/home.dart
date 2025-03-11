@@ -14,43 +14,45 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        SizedBox(height: 24.h),
-        // search
-        GetBuilder<HomeController>(builder: (controller) {
-          return controller.sectionLoader
-              ? const WidgetLoader(widget: SearchPart(searchPage: false))
-              : FadeInDown(
-                  duration: const Duration(milliseconds: 400),
-                  child: const SearchPart(searchPage: false));
-        }),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(height: 24.h),
+          // search
+          GetBuilder<HomeController>(builder: (controller) {
+            return controller.sectionLoader
+                ? const WidgetLoader(widget: SearchPart(searchPage: false))
+                : FadeInDown(
+                    duration: const Duration(milliseconds: 400),
+                    child: const SearchPart(searchPage: false));
+          }),
 
-        SizedBox(height: 24.h),
+          SizedBox(height: 24.h),
 
-        const MyCarouselSliderWidget(),
-        SizedBox(height: 24.h),
+          const MyCarouselSliderWidget(),
+          SizedBox(height: 24.h),
 
-        // const SuperSectionPart(),
+          // const SuperSectionPart(),
 
-        // all sections
-        const AllSuperSectionXLPart(),
-        // All products
+          // all sections
+          const AllSuperSectionXLPart(),
+          // All products
 
-        SizedBox(height: 24.h),
-        // // BODY
-        // Column(
-        //   children: [
-        //     // Top Products Part
-        //     const ProductsPart(),
+          SizedBox(height: 24.h),
+          // // BODY
+          // Column(
+          //   children: [
+          //     // Top Products Part
+          //     const ProductsPart(),
 
-        //     const AllProductsPart(),
+          //     const AllProductsPart(),
 
-        //     // spacer
-        //     SizedBox(height: 16.h)
-        //   ],
-        // )
-      ],
+          //     // spacer
+          //     SizedBox(height: 16.h)
+          //   ],
+          // )
+        ],
+      ),
     );
   }
 }

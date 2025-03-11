@@ -11,6 +11,7 @@ const String appAbout =
 
 String appContact = "7519280905";
 String appLink = "https://wa.me/$cuntryPinCode$appContact";
+// LatLng restLocation = LatLng(33.263456284975476, 44.48765855464276);
 String dbName = "hoco"; // sqlite db Name
 String currency = "IQD";
 String cuntryPinCode = "964";
