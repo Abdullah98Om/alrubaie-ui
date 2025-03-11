@@ -11,9 +11,9 @@ import '../view/widgets/my_snack_bar.dart';
 class OrderServices {
   SqlDb sqlDb = SqlDb();
   final CollectionReference _orderCollectionRef =
-      FirebaseFirestore.instance.collection("order");
+      FirebaseFirestore.instance.collection("orderss");
   final CollectionReference _itemCollectionRef =
-      FirebaseFirestore.instance.collection("item");
+      FirebaseFirestore.instance.collection("itemss");
 
   // get All my Orders  From SQL DB
   Future<List<String>> getMyLocalOrders() async {

@@ -3,7 +3,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../utility/check_network.dart';
 
 class CursalServices {
-  String fileNameInDB = 'slider-images';
+  String fileNameInDB = 'slider';
   final supabase = Supabase.instance.client;
 
   Future<List<String>> getSliderImgs() async {

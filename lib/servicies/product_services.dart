@@ -7,13 +7,13 @@ import '../utility/check_network.dart';
 
 class ProductServices {
   final CollectionReference _sectionCollectionRef =
-      FirebaseFirestore.instance.collection("section");
+      FirebaseFirestore.instance.collection("sectionss");
 
   final CollectionReference _superSectionCollectionRef =
-      FirebaseFirestore.instance.collection("super_section");
+      FirebaseFirestore.instance.collection("super_sec");
 
   final CollectionReference _productCollectionRef =
-      FirebaseFirestore.instance.collection("product");
+      FirebaseFirestore.instance.collection("productss");
 
   // get all sections from firebase DB
   Future<List<List>> getSections() async {
